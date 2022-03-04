@@ -11,30 +11,33 @@ class BookPlaceHolder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SkeletonAnimation(
-      borderRadius: const BorderRadius.all(Radius.circular(8)),
-      child: Column(
-        children: [
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: const BorderRadius.all(Radius.circular(8)),
-              shape: BoxShape.rectangle,
-              color: primaryPurpleColor.withOpacity(0.1),
+    return AspectRatio(
+      aspectRatio: responsiveSize(context, 5/10, 5/10, 5/8),
+      child: SkeletonAnimation(
+        borderRadius: const BorderRadius.all(Radius.circular(8)),
+        child: Column(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(Radius.circular(8)),
+                shape: BoxShape.rectangle,
+                color: primaryPurpleColor.withOpacity(0.1),
+              ),
+              width: BookCard.width(context),
+              height: responsiveSize(context,ScreenUtils.responsiveH(22.5, context), ScreenUtils.responsiveH(22.5, context), ScreenUtils.responsiveH(30, context)),
             ),
-            width: BookCard.width(context),
-            height: responsiveSize(context,ScreenUtils.responsiveH(22.5, context), ScreenUtils.responsiveH(22.5, context), ScreenUtils.responsiveH(30, context)),
-          ),
-          SizedBox(height: ScreenUtils.responsiveH(1, context),),
-          Container(
-            decoration: BoxDecoration(
-              borderRadius: const BorderRadius.all(Radius.circular(5)),
-              shape: BoxShape.rectangle,
-              color: primaryPurpleColor.withOpacity(0.1),
+            SizedBox(height: ScreenUtils.responsiveH(1, context),),
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: const BorderRadius.all(Radius.circular(5)),
+                shape: BoxShape.rectangle,
+                color: primaryPurpleColor.withOpacity(0.1),
+              ),
+              width: BookCard.width(context),
+              height: responsiveSize(context,ScreenUtils.responsiveH(2.5, context),ScreenUtils.responsiveH(2.5, context), ScreenUtils.responsiveH(2, context)),
             ),
-            width: BookCard.width(context),
-            height: responsiveSize(context,ScreenUtils.responsiveH(2.5, context),ScreenUtils.responsiveH(2.5, context), ScreenUtils.responsiveH(2, context)),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

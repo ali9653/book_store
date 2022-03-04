@@ -12,7 +12,7 @@ class BookCard extends GetView<BooksController> {
 
   const BookCard({Key? key, required this.book}) : super(key: key);
 
-  static double width(BuildContext context) => responsiveSize(context, ScreenUtils.responsiveW(33, context), ScreenUtils.responsiveW(33, context), 140);
+  static double width(BuildContext context) => responsiveSize(context, ScreenUtils.responsiveW(33, context), ScreenUtils.responsiveW(33, context), 150);
 
   Widget _imagePlaceholder (BuildContext context) {
     return Container(
@@ -30,15 +30,18 @@ class BookCard extends GetView<BooksController> {
   Widget _bookImageItem(BuildContext context) {
     return GestureDetector(
       onTap: () => controller.openBook(book),
-      child: ClipRRect(
-          borderRadius: BorderRadius.circular(8),
-          child: CachedNetworkImage(
-            placeholder: (context, url) => _imagePlaceholder(context),
-            imageUrl: book.formats!.imageJpeg!,
-            fit: BoxFit.cover,
-            height: responsiveSize(context, ScreenUtils.responsiveH(22.5, context), ScreenUtils.responsiveH(22.5, context), ScreenUtils.responsiveH(30, context)),
-            width: width(context),
-          )),
+      child: AspectRatio(
+        aspectRatio: responsiveSize(context, 5/8, 9/10, 9/12),
+        child: ClipRRect(
+            borderRadius: BorderRadius.circular(8),
+            child: CachedNetworkImage(
+              placeholder: (context, url) => _imagePlaceholder(context),
+              imageUrl: book.formats!.imageJpeg!,
+              fit: BoxFit.cover,
+             // height: responsiveSize(context, ScreenUtils.responsiveH(22.5, context), ScreenUtils.responsiveH(22.5, context), ScreenUtils.responsiveH(30, context)),
+              width: width(context),
+            )),
+      ),
     );
   }
 

@@ -33,6 +33,7 @@ class BooksController extends GetxController {
     searchController.dispose();
   }
 
+  // fetch all the books that have images
   Future<void> getBooks(String topic) async {
     page = 1;
     isLoading.value = true;
@@ -65,7 +66,7 @@ class BooksController extends GetxController {
   void debounceSearch(String topic) {
     debounce(searchText, (_) {
       getBooks(topic);
-    }, time: const Duration(milliseconds: 800));
+    }, time: const Duration(milliseconds: 500));
   }
 
   void setTopic(String topic) {
