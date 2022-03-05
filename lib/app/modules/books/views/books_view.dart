@@ -68,7 +68,7 @@ class _BooksViewState extends State<BooksView> {
   @override
   void initState() {
     controller.setTopic(widget.topic);
-    controller.getBooks(widget.topic);
+    controller.getBooks();
     super.initState();
   }
 

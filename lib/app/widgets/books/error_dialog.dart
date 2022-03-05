@@ -42,7 +42,7 @@ class ErrorDialog extends StatelessWidget {
               height: 20,
             ),
             Text(
-              "No readable format found",
+              "No viewable version available",
               style: montseratRegular.copyWith(fontSize: 15),
             ),
             const SizedBox(

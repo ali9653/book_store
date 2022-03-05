@@ -8,7 +8,7 @@ import 'package:get/get.dart';
 import '../../models/book_model.dart';
 
 class BookCard extends GetView<BooksController> {
-  final Books book;
+  final BookModel book;
 
   const BookCard({Key? key, required this.book}) : super(key: key);
 
@@ -29,9 +29,9 @@ class BookCard extends GetView<BooksController> {
 
   Widget _bookImageItem(BuildContext context) {
     return GestureDetector(
-      onTap: () => controller.openBook(book),
+      onTap: () => controller.openBookInfoItem(book,context),
       child: AspectRatio(
-        aspectRatio: responsiveSize(context, 5/8, 9/10, 9/12),
+        aspectRatio: responsiveSize(context, 5/8, 9/10, 9/11),
         child: ClipRRect(
             borderRadius: BorderRadius.circular(8),
             child: CachedNetworkImage(

@@ -31,3 +31,15 @@ double responsiveSize(BuildContext context, double mobile, double tablet, double
     return mobile;
   }
 }
+
+
+int currentDevice(BuildContext context) {
+  double w = MediaQuery.of(context).size.width;
+  if (w >= 1200) {
+    return 2;
+  } else if (w >= 700) {
+    return 1;
+  } else {
+    return 0;
+  }
+}

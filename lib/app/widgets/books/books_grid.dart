@@ -27,7 +27,7 @@ class BooksGridBuilderMobile extends GetView<BooksController> {
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: responsiveSize(context, 3, 5, 6).toInt(),
                 childAspectRatio: responsiveSize(context, 5 / 12, 9 / 16, 9 / 16),
-                crossAxisSpacing: responsiveSize(context, 10, 10, 30),
+                crossAxisSpacing: responsiveSize(context, 10, 30, 30),
                 mainAxisSpacing: 0),
             itemCount: controller.booksList.length,
             itemBuilder: (context, index) {
@@ -51,8 +51,8 @@ class BooksGridBuilderWeb extends GetView<BooksController> {
             child: GridView.builder(
                 controller: controller.scrollController,
                 padding: EdgeInsets.symmetric(horizontal: responsiveSize(context, hPadding, hPadding, ScreenUtils.responsiveW(15, context)), vertical: hPadding),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: responsiveSize(context, 3, 3, 6).toInt(), childAspectRatio: responsiveSize(context, 1 / 2.25, 1 / 2.25, 9 / 17), crossAxisSpacing: 10, mainAxisSpacing: 0),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 6, childAspectRatio: 9/17, crossAxisSpacing: 50, mainAxisSpacing: 0),
                 itemCount: controller.booksList.length,
                 itemBuilder: (context, index) {
                   return BookCard(book: controller.booksList[index]);

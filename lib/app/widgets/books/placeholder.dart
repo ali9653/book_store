@@ -24,7 +24,7 @@ class BookPlaceHolder extends StatelessWidget {
                 color: primaryPurpleColor.withOpacity(0.1),
               ),
               width: BookCard.width(context),
-              height: responsiveSize(context,ScreenUtils.responsiveH(22.5, context), ScreenUtils.responsiveH(22.5, context), ScreenUtils.responsiveH(30, context)),
+              height: responsiveSize(context,ScreenUtils.responsiveH(22.5, context), ScreenUtils.responsiveH(22.5, context), ScreenUtils.responsiveH(25, context)),
             ),
             SizedBox(height: ScreenUtils.responsiveH(1, context),),
             Container(
@@ -33,8 +33,8 @@ class BookPlaceHolder extends StatelessWidget {
                 shape: BoxShape.rectangle,
                 color: primaryPurpleColor.withOpacity(0.1),
               ),
-              width: BookCard.width(context),
-              height: responsiveSize(context,ScreenUtils.responsiveH(2.5, context),ScreenUtils.responsiveH(2.5, context), ScreenUtils.responsiveH(2, context)),
+             // width: BookCard.width(context),
+             // height: responsiveSize(context,ScreenUtils.responsiveH(2.5, context),ScreenUtils.responsiveH(2.5, context), ScreenUtils.responsiveH(2, context)),
             ),
           ],
         ),
@@ -52,7 +52,7 @@ class GridPlaceHolder extends StatelessWidget {
     return  GridView.builder(
         padding: EdgeInsets.symmetric(horizontal: responsiveSize(context,hPadding, hPadding, ScreenUtils.responsiveW(15, context)), vertical: hPadding),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: responsiveSize(context,3, 3, 6).toInt(), childAspectRatio: responsiveSize(context,1 / 2.25, 1 / 2.25, 9 / 17), crossAxisSpacing: 10, mainAxisSpacing: 0),
+            crossAxisCount: responsiveSize(context,3, 5, 6).toInt(), childAspectRatio: responsiveSize(context,5/12, 9 / 16, 9 / 17), crossAxisSpacing: responsiveSize(context, 10, 30, 50), mainAxisSpacing: 0),
         itemCount: 20,
         itemBuilder: (context, index) {
           return const BookPlaceHolder();
